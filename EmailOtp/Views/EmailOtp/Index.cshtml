@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Email OTP ";
+}
+
+<h2>Email OTP Module</h2>
+
+@if (ViewBag.Status != null)
+{
+    <div style="color: green;">
+        <strong>Status: @ViewBag.Status</strong>
+    </div>
+}
+
+<form method="post" action="/EmailOtp/GenerateOtp">
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required />
+        <button type="submit">Generate OTP</button>
+    </div>
+</form>
+
+<form method="post" action="/EmailOtp/ValidateOtp">
+    <div>
+        <label for="otp">Enter OTP:</label>
+        <input type="text" name="otp" maxlength="6" required />
+        <button type="submit">Validate OTP</button>
+    </div>
+</form>
